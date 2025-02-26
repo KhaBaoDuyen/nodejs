@@ -1,0 +1,64 @@
+<main class="col-10 cart m-auto" style="height: auto;">
+   <form action="/cart" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="method" value="PUT">
+      <div class="mt-3 d-flex justify-content-between">
+         <h1>Giỏ hàng của bạn</h1>
+         <button type="submit" class="btn btn-outline-success">Cập nhật</button>
+      </div>
+      <hr>
+      <div class="row justify-content-between">
+         <div class="cart1">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th>Stt</th>
+                     <th>Ảnh</th>
+                     <th width="100px">Tên sản phẩm</th>
+                     <th>Giá</th>
+                     <th>Số lượng</th>
+                     <th>Thành tiền</th>
+                     <th>Xoá</th>
+                  </tr>
+               </thead>
+               <tbody id="cartItems">
+                  <tr>
+                     <td>1</td>
+                     <td><img src="/upload/Products/20241209091231_main.jpg" alt="Lỗi ảnh" height="100%"></td>
+                     <td width="20%">Cây lá màu</td>
+                     <td class="price">100.000đ</td>
+                     <td class="quantity">
+                        <div class="quantity-control">
+                           <input type="button" value="-" onclick="decreaseQuantity(this)">
+                           <input type="number" name="cart" value="1" min="1">
+                           <input type="button" value="+" onclick="increaseQuantity(this)">
+                        </div>
+                     </td>
+                     <td class="item-total">100.000đ</td>
+                     <td>
+                        <form action="/cart/id" method="POST" style="display: inline-block;"
+                           onsubmit="return confirm('Bạn có chắc chắn xóa sản phẩm này?')">
+                           <input type="hidden" name="method" value="DELETE">
+                           <input type="hidden" name="selected_variant" value="variant_key">
+                           <input type="hidden" name="id_product" value="1">
+                           <button type="submit" class="btn btn-sm btn-danger">Xoá</button>
+                        </form>
+                     </td>
+                  </tr>
+                  <tr>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <div class="box_Cart p-3">
+         <form action="/checkout" method="POST" id="order">
+            <input type="hidden" name="method" value="POST">
+            <a href="/checkout" class="checkout">MUA HÀNG</a>
+         </form>
+      </div>
+   </form>
+</main>
+<script src="/assets/Client/Js/cart.js"></script>
+</body>
+
+</html>

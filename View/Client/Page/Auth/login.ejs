@@ -1,0 +1,70 @@
+<body>
+    <div class="Page-login">
+        <div class="container" id="container">
+            <div class="form-container sign-up">
+                <form action="/resgister" method="POST" enctype="multipart/form-data"
+                    class="d-flex justify-content-between col-12">
+                    <h1>Tạo tài khoản</h1>
+
+                    <div>
+                        <input type="text" placeholder="Tên" id="name" name="name" value="<%= name || '' %>">
+                        <% if (errors && errors.name) { %>
+                            <span style="color: red;">
+                                <%= errors.name %>
+                            </span>
+                            <% } %>
+                    </div>
+
+                    <div>
+                        <input type="text" placeholder="Email" id="email" name="email" value="<%= email || '' %>">
+                        <% if (errors && errors.email) { %>
+                            <span style="color: red;">
+                                <%= errors.email %>
+                            </span>
+                            <% } %>
+                    </div>
+
+                    <div>
+                        <input type="password" placeholder="Password" id="password" name="password"
+                            value="<%= password || '' %>">
+                        <% if (errors && errors.password) { %>
+                            <span style="color: red;">
+                                <%= errors.password %>
+                            </span>
+                            <% } %>
+                    </div>
+
+                    <a href="/">Quay về trang chủ</a>
+                    <button type="submit" class="button">Đăng ký</button>
+                </form>
+            </div>
+            <div class="form-container sign-in">
+                <!-- <form>
+                    <h1>Đăng nhập</h1>
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <div class="checkbox">
+                        <div class="input-checkbox">
+                            <input type="checkbox" name id>
+                            <label>Ghi nhớ mật khẩu</label>
+                        </div>
+                        <a href="/recover_password">Bạn
+                            quên mật khẩu?</a>
+                    </div>
+                    <a href="/">Quay về trang chủ</a>
+                    <button class="button">Đăng nhập</button>
+                </form> -->
+            </div>
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <button class id="login">Đăng nhập</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <button class id="register">Đăng ký</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
